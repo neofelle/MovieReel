@@ -1,0 +1,362 @@
+/** Stylus Styles */
+@import '../../node_modules/vuetify/src/stylus/settings/_colors'
+
+$theme := {
+  primary: #364f90
+  accent: $blue.accent-2
+  secondary: $grey.darken-3
+  info: $blue.base
+  warning: $amber.base
+  error: $red.base
+  success: $green.base
+}
+.justify{
+  text-align:justify;
+}
+.see-review-btn{
+  margin: 0px;
+}
+.see-review-btn > div{
+  background-color: #1976d2;color: white;
+  float:right;
+}
+.tree-link{
+  text-decoration: none;
+}
+.see-review-btn > div:hover{
+  background-color: #ff9030;color: white;
+}
+.right{
+  float:right;
+}
+html{
+  background-color: #f2f2f2;
+}
+.left{
+  float:left;
+}
+.review-btn{
+  text-decoration: none;
+  font-size: 15px;
+  color: white !important;
+  background-color: #1976d2;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.review-btn:hover{
+  background-color: #ff9030;
+}
+.home-title{
+  color: #4b85de;
+  position: relative;
+  top: 34px;
+  margin-left: 48px;
+}
+.home-title > a{
+  color: #39b4ff !important;
+}
+.btn__content{
+  text-transform: initial !important;
+}
+.login-form{
+  position:relative;bottom:10px;
+}
+.default > div.input-group__input > input{
+  padding-left: 7px;
+}
+.errortxt > label{
+  color:red !important;
+}
+.center-block{
+  margin:0 auto;
+}
+.register-block{
+  margin:0 auto;padding-top:20px;padding-bottom:20px;
+}
+.input-form-register{
+  border-bottom: 1px solid gray;padding-top: 5px;padding-bottom: 5px;padding-left:10px;width: 100%;margin-bottom: 10px;
+}
+.gray-block{
+  background-color: rgba(77, 243, 249, 0.26);border-radius: 30px;border: 1px solid #26b2ff;margin:0 auto;
+}
+.hide{
+  display: none;
+}
+.submit-blue{
+      text-transform: capitalize;
+      position: relative;
+      bottom: 10px;
+      color: #fff !important;
+      background-color: #1a86f3 !important;
+      float: right;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      border-radius: 17px !important;
+}
+.submit-green{
+    background-color: #158650;
+    float: right;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 17px;
+    cursor: pointer;
+}
+.register{
+    float: right;
+    color: #1a86f3;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 17px;
+    cursor: pointer;
+}
+.liked{
+  color:#ff1d1d !important;
+}
+.favorite{
+  cursor: pointer;
+}
+.text-gray{
+  color: gray;
+}
+.movie-description > p {
+  font-size: 17px;
+}
+.banner{
+  width: 100%;background-color: black;height: 500px;background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;
+}
+.login-container > p {
+  font-size: 17px;
+}
+.text-white{
+  color:white !important;
+}
+.pagination-container{
+  width:50%;margin:0 auto;
+}
+.genre-list{
+  list-style-type: none;margin: 0;padding: 0;width: 100%;margin-top: 0px;font-size: 10px;
+}
+.pagination{
+  display: inline-table;text-align:center;margin-bottom: 20px !important;list-style-type: none;margin: 0;padding: 0;width: 100%;margin-top: 0px;font-size: 10px;
+}
+.pagination > li > a {
+  text-decoration: none;
+}
+.pagination > li {
+  width:15%;display:inline;float: left;display: block;margin-top: 10px;color: white;padding-right: 8px;padding-left: 8px;font-size: 18px;padding-top: 2px;padding-bottom: 2px;margin-right: 7px;
+}
+.tagline{
+  margin-top:20px;
+}
+.genre-list > li {
+  float: left;display: block;background-color: #2d96ff;margin-top: 10px;color: white;padding-right: 8px;padding-left: 8px;border-radius: 12px;padding-top: 2px;padding-bottom: 2px;margin-right: 7px;
+}
+.movie-card{
+    margin-top:40px;margin-bottom:40px;padding-left: 20px;padding-right:55px;padding-top:40px;padding-bottom:40px;background-color: white;
+}
+.movie-single{
+    margin-top:0px;margin-bottom:40px;padding-left: 20px;padding-right:55px;padding-top:40px;padding-bottom:40px;background-color: #f3f3f300;
+}
+.default-container{
+  margin-top:40px;margin-bottom:40px;padding:20px;
+}
+.text-cyan{
+  color:#2084b5;
+}
+.shadow{
+  box-shadow: rgba(0,0,0,0.55) 0px 2px 8px -5px;
+}
+/* Reviews CSS */
+.review-movie-pic{
+  width:240px !important;height: 300px !important;margin:auto !important;
+}
+.overlay-banner{
+  width:100%;background-image: radial-gradient(circle at 20% 50%, rgba(63, 84, 101, 0.67) 0%, rgba(9, 14, 44, 0.94) 100%);height:500px;
+}
+.review-title{
+  font-weight: 500;font-size: 20px;color: rgb(162, 41, 183);font-style: italic;
+}
+.review-by{
+  font-weight: 500;font-size: 15px;color: rgb(104, 106, 115);padding-left:5px;
+}
+.review-description{
+  font-size: 16px;text-align: justify;padding-left:5px;
+}
+.text-review-title{
+  width:70%;margin-right:20px;
+}
+.select-review-score{
+  width:25%;
+}
+.review-form-container{
+  box-shadow: rgba(0,0,0,0.55) 0px 2px 8px -5px;margin-bottom: 30px;margin-top: 20px;margin-left: 50px;background-color: #ffffff !important;width: 100%;height: 100%;display: inline-block;padding-left: 30px;padding-right: 30px;padding-top: 25px;padding-bottom: 25px;
+}
+.review-icon{
+  color: #f9cf30 !important;font-size: 28px !important;position: relative !important;bottom: 3px !important;float:left;
+}
+.review-num{
+  font-weight: 500;font-size: 18px;color: rgb(75, 133, 222);padding-left:5px;float:left;
+}
+.reviews-card{
+  box-shadow: rgba(0,0,0,0.55) 0px 2px 8px -5px;margin-bottom: 30px;margin-top: 20px;margin-left: 50px;background-color: #ffffff !important;width: 100%;height: 100%;display: inline-block;padding-left: 30px;padding-right: 30px;padding-top: 25px;padding-bottom: 25px;
+}
+.profile-pic-container{
+  width:20%;
+}
+.review-container{
+  width:80%;
+}
+.review-profile-pic{
+  width: 90px !important;height: 90px !important;margin: auto !important;border-radius: 50px !important;
+}
+.text-review > div > textarea{
+  height: 130px;border-top: 1px solid #9e9e9e;border-right: 1px solid #9e9e9e;border-left: 1px solid #9e9e9e;padding-left: 10px;padding-top:10px;
+}
+.txt-thanks{
+  text-align:center;color: #34c74d;
+}
+.text-review > label {
+  padding-left: 13px;padding-top: 2px;
+}
+
+/* End of Reviews CSS */
+.application--wrap{
+  background-color: #d4d4d433;
+}
+.mobile-center{
+  text-align: left;
+}
+@media (max-width: 1000px) {
+  .profile-pic-container{
+    width: 100%;
+    text-align: center;
+  }
+  h2.review-by{
+    text-align: center;
+  }
+  .review-container {
+    width: 100%;
+  }
+  .banner {
+    width: 100%;
+    background-color: #000;
+    height: 1000px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  .movie-review-description > h2 {
+    text-align: center !important;
+  }
+  .mobile-center{
+    text-align: center;
+  }
+  ul.genre-list{
+    list-style-type:none;display:flex;justify-content: center;
+  }
+  .home-title{
+    text-align: center;
+  }
+  .review-num{
+    width: 100%;text-align: center;
+  }
+  .reviews-card{
+    margin:0px;
+  }
+  .text-review-title{
+    width:100%;
+    float:none;
+  }
+  .select-review-score{
+    width: 100%;
+    float:none;
+  }
+  .review-form-container{
+    margin:0px;
+  }
+  .review-icon{
+    float: none;
+  }
+  .review-movie-pic {
+      width: 290px !important;
+      height: 330px !important;
+      margin: auto !important;
+  }
+  .overlay-banner {
+      width: 100%;
+      background-image: radial-gradient(circle at 20% 50%, rgba(63,84,101,0.67) 0%, rgba(9,14,44,0.94) 100%);
+      height: 1000px;
+  }
+}
+@media (max-width: 960px) {
+  .movie-description{
+    padding-left: 40px;padding-right: 40px;text-align: center;margin-top:20px;
+  }
+  .home-title{
+    margin-left:0px;
+    text-align:center;
+    font-size: 23px !important;
+  }
+}
+@media (max-width: 600px) {
+  .banner{
+    height:940px;
+  }
+  .overlay-banner{
+    height: 940px;
+  }
+  .movie-description{
+    padding-left: 40px;padding-right: 40px;text-align: center;margin-top:20px;
+  }
+  .movie-description > p {
+    font-size: 15px;
+  }
+
+}
+/* Loader CSS */
+.custom-loader {
+   animation: loader 1s infinite;
+   display: flex;
+ }
+ @-moz-keyframes loader {
+   from {
+     transform: rotate(0);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+ }
+ @-webkit-keyframes loader {
+   from {
+     transform: rotate(0);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+ }
+ @-o-keyframes loader {
+   from {
+     transform: rotate(0);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+ }
+ @keyframes loader {
+   from {
+     transform: rotate(0);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+ }
+/* end of Loader CSS */
+
+@import '../../node_modules/vuetify/src/stylus/main'
