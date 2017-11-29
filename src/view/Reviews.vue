@@ -1,5 +1,6 @@
 <template lang="pug">
   v-layout(row='')
+    <span style="display:none;">{{ this.$store.getters.userFullname }}</span>
     .banner(v-bind:style="{ 'background-image': this.backdropURL }")
       .overlay-banner
         v-flex(x6='', lg6='', sm7='', xs12='', style='margin:0 auto;')
@@ -90,6 +91,10 @@ export default {
   },
   methods: {
     onSubmit() {
+      Firebase.database().ref('user').on('value', (user) => {
+        this.userList = user.val();
+      });
+      this.$store.dispatch('getEmail', this.userList);
       if (this.validateTitle === true ||
           this.validateDescription === true ||
           this.validateScore === true) {
@@ -126,17 +131,16 @@ export default {
       const posterPath = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
       this.posterURL = `${posterPath}${this.movieData.poster_path}`;
     });
-    this.$store.dispatch('getEmail');
     Firebase.database().ref('user').on('value', (user) => {
       this.userList = user.val();
     });
+    this.$store.dispatch('getEmail', this.userList);
     Firebase.database().ref('review').on('value', (review) => {
       this.$store.dispatch('getReviews', {
         reviewList: review.val(),
         movieID: this.$route.params.movieId,
       });
     });
-    this.$store.dispatch('getName', this.userList);
     console.log(this.$store.getters.movieReview);
   },
   computed: {

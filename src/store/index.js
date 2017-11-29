@@ -59,23 +59,41 @@ export const store = new Vuex.Store({
     },
   },
   actions: {
-    getEmail({ commit }) {
+    getEmail({ commit }, payload) {
       Firebase.auth().onAuthStateChanged((firebaseUser) => {
         if (firebaseUser) {
           commit('setEmail', firebaseUser.email);
+          console.log(firebaseUser.email);
+          Object.entries(payload).forEach(([key, value]) => {
+            if (firebaseUser.email === value.email) {
+              console.log(key);
+              console.log(value.name);
+              commit('setUserFullname', value.name);
+            }
+          });
         }
       });
     },
-    registerReview({ commit }, payload) {
-      const newReview = {
-        fullname: payload.fullName,
-        email: payload.email,
-        movieid: payload.movieID,
-        title: payload.title,
-        score: payload.score,
-        description: payload.description,
-      };
-      Firebase.database().ref('review').push(newReview);
+    registerReview({ commit, state }, payload) {
+      let usrList = null;
+      Firebase.database().ref('user').on('value', (user) => {
+        usrList = user.val();
+      });
+      Object.entries(usrList).forEach(([key, value]) => {
+        if (payload.email === value.email) {
+          console.log(key);
+          commit('setUserFullname', value.name);
+          const newReview = {
+            fullname: value.name,
+            email: payload.email,
+            movieid: payload.movieID,
+            title: payload.title,
+            score: payload.score,
+            description: payload.description,
+          };
+          Firebase.database().ref('review').push(newReview);
+        }
+      });
     },
     getReviews({ commit }, payload) {
       const obj = {};
@@ -112,6 +130,7 @@ export const store = new Vuex.Store({
             console.log(user);
             commit('setLoading', false);
             commit('setEmail', payload.email);
+            commit('setUserFullname', payload.name);
             const newUser = {
               name: payload.name,
               email: payload.email,
@@ -139,6 +158,16 @@ export const store = new Vuex.Store({
         .then(
           (user) => {
             commit('setLoading', false);
+            let userList = null;
+            Firebase.database().ref('user').on('value', (users) => {
+              userList = users.val();
+            });
+            Object.entries(userList).forEach(([key, value]) => {
+              if (payload.email === value.email) {
+                console.log(key);
+                commit('setUserFullname', value.name);
+              }
+            });
             const newUser = {
               id: user.uid,
               email: payload.email,

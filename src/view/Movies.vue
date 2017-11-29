@@ -22,8 +22,12 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import * as Firebase from 'firebase';
+
 const axios = require('axios');
 
+Vue.prototype.$axios = axios;
 export default {
   data() {
     return {
@@ -31,6 +35,7 @@ export default {
       overview: '',
       upcoming_movies: null,
       imgPath: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/',
+      userList: {},
       pages: [
         { url: '/movies/1', text: '1' },
         { url: '/movies/2', text: '2' },
@@ -44,6 +49,10 @@ export default {
   methods: {
   },
   mounted() {
+    Firebase.database().ref('user').on('value', (user) => {
+      this.userList = user.val();
+    });
+    this.$store.dispatch('getEmail', this.userList);
     if (this.$route.params.page > 0) {
       const page = `https://api.themoviedb.org/3/movie/upcoming?api_key=75a211ed97aa818a7965596fb17aa7ad&language=en-US&page=${this.$route.params.page}`;
       axios.get(page)
