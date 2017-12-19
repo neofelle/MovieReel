@@ -16,6 +16,14 @@ $theme := {
 .see-review-btn{
   margin: 0px;
 }
+.delete-icon{
+  text-decoration: none;
+  position: absolute;
+  right: 24vw;
+}
+.delete-icon > i.material-icons.icon:hover{
+  color:blue !important;
+}
 .see-review-btn > div{
   background-color: #1976d2;color: white;
   float:right;
@@ -57,6 +65,21 @@ html{
 .home-title > a{
   color: #39b4ff !important;
 }
+button.btn.btn--flat.green--text.text--darken-1 {
+  padding: 5px !important;
+  color: #0e7ae6 !important;
+  border: 1px solid #3caffd !important;
+}
+.dialog.dialog--active{
+  max-width: 415px !important;
+  text-align:center;
+}
+.card__title.headline {
+  font-size: 19px !important;
+  text-align: center !important;
+  background-color: #0c7ae6;
+  color: white;
+}
 .btn__content{
   text-transform: initial !important;
 }
@@ -65,6 +88,20 @@ html{
 }
 .default > div.input-group__input > input{
   padding-left: 7px;
+}
+.blue-btn{
+  text-decoration: none;
+  background-color: #2286ea;
+  color: white !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 19px;
+  text-align: center;
+  display: block;
+  width: 180px;
+  margin: 0 auto;
 }
 .errortxt > label{
   color:red !important;
@@ -233,10 +270,22 @@ html{
 .mobile-center{
   text-align: left;
 }
+@media (max-width: 1265px) {
+  .delete-icon{
+    text-decoration: none;
+    position: absolute;
+    right: 19vw;
+  }
+}
 @media (max-width: 1000px) {
   .profile-pic-container{
     width: 100%;
     text-align: center;
+  }
+  .delete-icon{
+    text-decoration: none;
+    position: absolute;
+    right: 23vw;
   }
   h2.review-by{
     text-align: center;
@@ -318,7 +367,22 @@ html{
   .movie-description > p {
     font-size: 15px;
   }
-
+  .delete-icon{
+    text-decoration: none;
+    position: absolute;
+    right: 3vw;
+  }
+}
+@media (max-width: 390px) {
+  .card__text {
+    font-size: 12px;
+  }
+  .card__title.headline {
+    font-size: 15px !important;
+    text-align: center !important;
+    background-color: #0c7ae6;
+    color: #fff;
+  }
 }
 /* Loader CSS */
 .custom-loader {

@@ -28,10 +28,18 @@ export const store = new Vuex.Store({
     loading: false,
     error: null,
     email: null,
+    reviewKey: null,
+    myReview: null,
   },
   mutations: {
     setUser(state, payload) {
       state.user = payload;
+    },
+    setMyReview(state, payload) {
+      state.myReview = payload;
+    },
+    setReviewKey(state, payload) {
+      state.reviewKey = payload;
     },
     setReviewable(state, payload) {
       state.reviewable = payload;
@@ -74,7 +82,11 @@ export const store = new Vuex.Store({
         }
       });
     },
+    updateReview({ commit }) {
+      commit('setReviewSuccess', false);
+    },
     registerReview({ commit, state }, payload) {
+      commit('setLoading', true);
       let usrList = null;
       Firebase.database().ref('user').on('value', (user) => {
         usrList = user.val();
@@ -92,6 +104,7 @@ export const store = new Vuex.Store({
             description: payload.description,
           };
           Firebase.database().ref('review').push(newReview);
+          commit('setLoading', false);
         }
       });
     },
@@ -104,9 +117,16 @@ export const store = new Vuex.Store({
           const randomNumber = String(Math.ceil(Math.random() * 50));
           const url = `https://randomuser.me/api/portraits/men/${randomNumber}.jpg`;
           value.pic = url;
+          value.yourReview = false;
           obj[key] = value;
         }
         if (this.state.email === value.email && payload.movieID === value.movieid) {
+          console.log('werpa');
+          console.log(value);
+          value.yourReview = true;
+          obj[key] = value;
+          commit('setMyReview', obj[key]);
+          commit('setReviewKey', key);
           commit('setReviewable', false);
           commit('setReviewSuccess', true);
         }
@@ -197,6 +217,12 @@ export const store = new Vuex.Store({
     },
     user(state) {
       return state.user;
+    },
+    reviewKey(state) {
+      return state.reviewKey;
+    },
+    myReview(state) {
+      return state.myReview;
     },
     reviewSuccess(state) {
       return state.reviewSuccess;
